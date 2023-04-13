@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
 
   def calculate_random
-#Parameters: {"user_min"=>"1", "user_max"=>"5"}
+  #Parameters: {"user_min"=>"1", "user_max"=>"5"}
 
   @lower = params.fetch("user_min").to_f
   @upper = params.fetch("user_max").to_f
@@ -30,5 +30,22 @@ class ApplicationController < ActionController::Base
 
     render({ :template => "calculation_templates/random_results.html.erb" })
   end
+
+  def blank_square_root_form
+    render({ :template => "calculation_templates/square_root_form.html.erb" })
+  end  
+
+
+  def calculate_square_root
+
+    @num = params.fetch("results_square_root").to_f
+    @square_root_of_num = @num ** 0.5
+      render({ :template => "calculation_templates/square_root_results.html.erb" })
+    end
+
+
+
+
+
 
 end
